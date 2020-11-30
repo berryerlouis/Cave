@@ -1,0 +1,60 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        </br>
+        <h1 class="display-3">Bienvenue dans Ma Cave</h1>
+        <p>Cette application te servira à choisir et gérer tes wihiskies ou tes vins </p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <a class="btn" href="whisky" role="button" >
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <img class="card-img-top" src="images/whisky.jpg "  width="300" height="200"/>
+                        <h2 class="card-title">Mes whiskies</h2>
+                        <p class="card-text">Gére ta cave à whiskies</p>
+                    </div>
+                    <ul class="list-group list-group-flush bg-dark text-white">
+                        <li class="list-group-item bg-dark text-white">Nombre de bouteilles : <%= whiskiesLength%></li>
+                        <li class="list-group-item bg-dark text-white">Nombre de type de bouteilles : <%= whiskiesNbTypes%></li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="btn" href="vin" role="button" >
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <img class="card-img-top" src="images/vin.jpg "  width="300" height="200"/>
+                        <h2 class="card-title">Mes vins</h2>
+                        <p class="card-text">Gére ta cave à vins</p>
+                    </div>
+                    <ul class="list-group list-group-flush bg-dark text-white">
+                        <li class="list-group-item bg-dark text-white">Nombre de bouteilles : <%= vinsLength%></li>
+                        <li class="list-group-item bg-dark text-white">Nombre de type de bouteilles : <%= vinsNbTypes%></li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="btn" href="autre" role="button" >
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <img class="card-img-top" src="images/autre.jpg "  width="300" height="200"/>
+                        <h2 class="card-title">Mes boissons</h2>
+                        <p class="card-text">Gére tes autres boissons</p>
+                    </div>
+                    <ul class="list-group list-group-flush bg-dark text-white">
+                        <li class="list-group-item bg-dark text-white">Nombre de bouteilles : <%= autresLength%></li>
+                        <li class="list-group-item bg-dark text-white">Nombre de type de bouteilles : <%= autresNbTypes%></li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+<hr>
+</div> <!-- /container -->

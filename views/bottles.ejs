@@ -1,0 +1,32 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="display-3"><%= bottleTitre %></h1>
+                <h5 class="display-5" id="title_nb_bottles">Il y a <%= test %> bouteilles.</h5>
+            </div>
+            <div class="col-md-4">
+                <img src=<%= bottleImage %>  width="300" height="200"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalAddForm" onclick="openCamera()">
+                Ajouter
+            </button>
+        </div>
+        <div class="col-md-4">
+            <p class="statusMsg"> <%= error %></p>
+        </div>
+    </div>
+    <%- include('./partials/modal_add.ejs') %>
+    <%- include('./partials/modal_modify.ejs') %>
+</div> <!-- /container  %>-->
+<p></p>
+<%- include('./partials/list_bottles.ejs') %>

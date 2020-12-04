@@ -115,7 +115,6 @@ app.post('/add',(req, res) => {
     });
 })
 
-
 //route edit
 app.post('/edit',(req, res) => {
 
@@ -125,22 +124,20 @@ app.post('/edit',(req, res) => {
             "name": req.body.name,
             "age": req.body.age,
             "alcool": req.body.alcool,
-            "photo": req.body.base64image,
+            "photo": req.body.photo,
             "distillerie": req.body.distillerie,
             "address": req.body.address,
             "message": req.body.message
         });
     db.write(req.body.db,bottle,true,(err) => {
-        db.readAll(req.body.db,(bottles) => {
-            db.getNbBottles(req.body.db,(nbBottles) => {
-                res.send({bottles: bottles, nbBottles: nbBottles, error : err})
-            });
+        db.read(req.body.db, req.body.name ,(bottle) => {
+            res.send({bottle: bottle, error : err})
         });
     });
 })
 
 //route add
-app.post('/offset',(req, res) => {
+app.post('/bottleQty',(req, res) => {
     
     let bottle = (
         {
@@ -148,9 +145,9 @@ app.post('/offset',(req, res) => {
             "name": req.body.name
         });
     db.addBottleQty(req.body.db,bottle,(err) => {
-        db.readAll(req.body.db,(bottles) => {
+        db.read(req.body.db, req.body.name ,(bottle) => {
             db.getNbBottles(req.body.db,(nbBottles) => {
-                res.send({bottles: bottles, nbBottles: nbBottles})
+                res.send({bottle: bottle, nbBottles: nbBottles})
             });
         });
     });

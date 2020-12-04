@@ -73,7 +73,7 @@ exports.write = function (database,bottle, edit, cb)
                     findBottle = true;
                     if(edit)
                     {
-                        bottlesDatabase.bottles[i].qty = parseInt(bottle.qty) + 1;
+                        bottlesDatabase.bottles[i].qty = parseInt(bottle.qty);
                         bottlesDatabase.bottles[i].name = bottle.name;
                         bottlesDatabase.bottles[i].age = bottle.age;
                         bottlesDatabase.bottles[i].alcool = bottle.alcool;
@@ -98,22 +98,46 @@ exports.write = function (database,bottle, edit, cb)
                     cb("<span style=\"color:red;\">Cette bouteille n'existe pas!</p>");
                     return;
                 }
+                
+
+                //save image
+                var path ;
+                var base64Data = bottle.photo.replace(/^data:([A-Za-z-+/]+);base64,/, '');
+                //if image is not only alpha
+                if(!base64Data.startsWith("iVBORw0KGgoAAAANSUhEUgAAAUAAAADwCAYAAABxLb1rAAAG80lEQVR4Xu3UAREAAA"))
+                {
+                    path = 'images/pictures/'+bottle.name+'.png';
+                    fs.writeFileSync('./public/'+path, base64Data,  {encoding: 'base64'});
+                }
+                else
+                {
+                    if(database == "whiskies")
+                    {
+                        path = 'images/pictures/generic_whisky.png';
+                    }
+                    else if(database == "vins")
+                    {
+                        path = 'images/pictures/generic_vin.png';
+                    }
+                    else if(database == "autres")
+                    {
+                        path = 'images/pictures/generic_autre.png';
+                    }
+                }
+
+
                 bottlesDatabase.bottles.push({
-                    qty : 0,
+                    qty : 1,
                     name : bottle.name,
                     age : bottle.age,
                     alcool : bottle.alcool,
-                    photo : bottle.photo,
+                    photo : path,
                     distillerie : bottle.distillerie,
                     address : bottle.address,
                     message : bottle.message
                 });
             }
 
-            //save image
-            const base64Data = bottle.photo.replace(/^data:([A-Za-z-+/]+);base64,/, '');
-            const path = 'images/pictures/'+bottle.name+'.png';
-            fs.writeFileSync('./public/'+path, bottle.photo,  {encoding: 'base64'});
 
             // write new data back to the file
             fs.writeFile("./db/"+database+".json", JSON.stringify(bottlesDatabase, null, 4), (err) => 
@@ -124,7 +148,15 @@ exports.write = function (database,bottle, edit, cb)
                 }
                 else
                 {
-                    cb("<span style=\"color:green;\">Nouvelle bouteille enregistrée !</p>");
+                    if(edit)
+                    {
+                        cb("<span style=\"color:green;\">Bouteille modifiée !</p>");
+                    }
+                    else
+                    {
+                        cb("<span style=\"color:green;\">Nouvelle bouteille enregistrée !</p>");
+                    }
+                    
                 }
             });
         }

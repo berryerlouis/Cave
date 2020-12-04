@@ -6,10 +6,10 @@
             "name": "Glen Grant",
             "age": "10",
             "alcool": "45",
-            "photo": "https://www.whisky-distilleries.info/images/photos-bouteilles/Aberlour%2010.JPG",
+            "photo": "images/pictures/generic_autre.png",
             "distillerie": "Aberlour distillery",
             "address": "Aberlour Banffshire AB38 9PJ",
-            "message": "L'indication sur les bouteilles de Glen Grant \"Pure Malt\" ne fait pas référence à un mélange de malts en provenance de diverses distilleries. Il s'agit en fait d'un single malt."
+            "message": ""
         }
     ]
 }

@@ -1,14 +1,23 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Navbar brand -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+        <!-- Search form -->
+        <form class="form-inline ml-auto">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" id="listSearch" type="text" placeholder="Search">
+                <ul class="list-group" id="myList">
+                </ul>
+            </div>
         </form>
     </div>
-</nav>
+    <!-- Collapsible content -->
+
+  </nav>

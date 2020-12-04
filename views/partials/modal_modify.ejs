@@ -11,29 +11,31 @@
                 </button>
             </div>
             
-    
-    
             <!-- Modal Body -->
             <div class="modal-body" style="height: 80vh;" >
                 <p class="statusModalModifyMsg"></p>
                 <form role="form" method="POST" action="add">
                     <div class="form-group">
                         <label for="inputName">Nom</label>
-                        <input type="text" readonly class="form-control" id="inputModifyName" placeholder="Nom de la bouteille" value=""/>
+                        <input type="text" readonly class="form-control" id="inputModifyName" placeholder="Nom de la bouteille" value="" />
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="inputAge">Age</label>
-                                <input type="number" class="form-control" id="inputAge" placeholder="0" value=""/>
+                                <input type="number" class="form-control" id="inputModifyAge" placeholder="0" value=""/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="inputAlcool">Alcool(%)</label>
-                                <input type="number" class="form-control" id="inputAlcool" placeholder="40%" value=""/>
+                                <input type="number" class="form-control" id="inputModifyAlcool" placeholder="40%" value=""/>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group" style="display: none;">
+                        <label for="inputQty">Quantité</label>
+                        <input type="text" readonly class="form-control" id="inputModifyQty" placeholder="0" value=""/>
                     </div>
                     <div class="form-group">
                         <label for="inputDistillerie">Nom du domaine</label>
@@ -47,13 +49,19 @@
                         <label for="inputMessage">Message</label>
                         <textarea class="form-control" id="inputModifyMessage" placeholder="Message"></textarea>
                     </div>
+                    <div class="form-group" style="display: none;">
+                        <label for="inputPhoto">Photo</label>
+                        <p class="text-center">
+                            <img style="margin: 2px;" id="inputModifyPhoto" class="card-img-top-shrink" src="">
+                        </p>
+                    </div>
                 </form>
             </div>
             
             <!-- Modal Footer -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-dark submitBtn" onclick="modalModifyBottle()">Modifier</button>
+                <button type="submit" class="btn btn-dark submitBtn" id="inputModifySubmit" onclick="modalModifyBottle()">Modifier</button>
             </div>
         </div>
     </div>

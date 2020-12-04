@@ -1,4 +1,7 @@
 <!-- Modal -->
+<script type="text/javascript">
+    savedDatabase = '<%- JSON.stringify(bottles) %>';
+</script>
 <div class="modal fade" id="modalAddForm" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -31,7 +34,7 @@
                 <form role="form" method="POST" action="add">
                     <div class="form-group">
                         <label for="inputName">Nom</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Nom de la bouteille" value=""/>
+                        <input type="text" class="form-control" id="inputName" placeholder="Nom de la bouteille" onkeyup="bottleAlreadyExist(JSON.parse(savedDatabase))" /> 
                     </div>
                     <div class="row">
                         <div class="col-md-6">

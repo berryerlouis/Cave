@@ -70,9 +70,8 @@ function showFilteredBottles(type,filter)
     }
 }
 
-function addFilters(bottles){
-    savedDatabase = bottles;
-    filteredDatabase = bottles;
+function addFilters(){
+    filteredDatabase = savedDatabase;
 
     if(document.getElementById('db')!= null)
     {
@@ -81,7 +80,7 @@ function addFilters(bottles){
 
         let find = false;
         let genres = [];
-        savedDatabase.forEach(element => {
+        filteredDatabase.forEach(element => {
             find = false;
             genres.forEach(e => {
                 if(e == element.genre)
@@ -100,7 +99,7 @@ function addFilters(bottles){
         div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('pays','All')">Tout</a>`;
         find = false;
         genres = [];
-        savedDatabase.forEach(element => {
+        filteredDatabase.forEach(element => {
             find = false;
             genres.forEach(e => {
                 if(e == element.pays)

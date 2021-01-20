@@ -20,3 +20,5 @@ function pagePlus()
         showBottles(filteredDatabase, ma_page +1);
     }
 }
+
+getBottles("whiskies")

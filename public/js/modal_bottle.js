@@ -105,6 +105,7 @@ var getBottles = function( db )
         if (xhr.readyState === 4 && xhr.status === 200)
         {
             let jsonBottle = JSON.parse(xhr.response);
+            savedDatabase = jsonBottle.bottles;
             let nbBottles = 0;
             for(let i = 0 ; i < jsonBottle.bottles.length; i++)
             {
@@ -113,6 +114,7 @@ var getBottles = function( db )
             $("#title_nb_types_bottles").html("Nombre de type de bouteilles : "+ jsonBottle.bottles.length);
             $("#title_nb_bottles").html("Nombre de bouteilles : "+ nbBottles);
             showBottles(jsonBottle.bottles,ma_page);
+            addFilters();
         }
     }
     xhr.send(JSON.stringify({"db": db}));
@@ -130,7 +132,8 @@ var addBottle = function( data )
         {
             let jsonBottle = JSON.parse(xhr.response);
             //update client db 
-            savedDatabase = JSON.stringify(jsonBottle.bottles);
+            savedDatabase = jsonBottle.bottles;
+            filteredDatabase = savedDatabase;
             let nbBottles = 0;
 
             for(let i = 0 ; i < jsonBottle.bottles.length; i++)

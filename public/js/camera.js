@@ -59,7 +59,7 @@ var openCamera = function( data )
         });
     
         
-        const loop = classifier => 
+        /*const loop = classifier => 
         {
             classifier.classify().then(results => 
             {
@@ -77,7 +77,7 @@ var openCamera = function( data )
                 }
             });
         };
-        ml5.imageClassifier("MobileNet", video).then(classifier => loop(classifier));   
+        ml5.imageClassifier("MobileNet", video).then(classifier => loop(classifier));  */ 
     } 
     else
     {

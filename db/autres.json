@@ -2,14 +2,21 @@
     "version": "1.0.0",
     "bottles": [
         {
-            "qty" : "0",
-            "name": "Glen Grant",
-            "age": "10",
-            "alcool": "45",
-            "photo": "images/pictures/generic_autre.png",
-            "distillerie": "Aberlour distillery",
-            "address": "Aberlour Banffshire AB38 9PJ",
-            "message": ""
+            "qty": 4,
+            "name": "Clos de la patrie",
+            "age": "20",
+            "alcool": "40",
+            "photo": "images/pictures/Clos de la patrie.png",
+            "distillerie": "Michel Bouet",
+            "genre": "Calvados",
+            "pays": "France",
+            "address": "Hauterive (Orne)",
+            "zip": "61250",
+            "nez": "",
+            "bouche": "",
+            "final": "",
+            "note": "",
+            "message": "Production fermière sur verger \"haute tiges\""
         }
     ]
 }

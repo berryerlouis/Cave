@@ -78,8 +78,15 @@ exports.write = function (database,bottle, edit, cb)
                         bottlesDatabase.bottles[i].age = bottle.age;
                         bottlesDatabase.bottles[i].alcool = bottle.alcool;
                         bottlesDatabase.bottles[i].photo = bottle.photo;
+                        bottlesDatabase.bottles[i].genre = bottle.genre;
+                        bottlesDatabase.bottles[i].pays = bottle.pays;
                         bottlesDatabase.bottles[i].distillerie = bottle.distillerie;
                         bottlesDatabase.bottles[i].address = bottle.address;
+                        bottlesDatabase.bottles[i].zip = bottle.zip;
+                        bottlesDatabase.bottles[i].nez = bottle.nez;
+                        bottlesDatabase.bottles[i].bouche = bottle.bouche;
+                        bottlesDatabase.bottles[i].final = bottle.final;
+                        bottlesDatabase.bottles[i].note = bottle.note;
                         bottlesDatabase.bottles[i].message = bottle.message;
                     }
                     else
@@ -132,8 +139,15 @@ exports.write = function (database,bottle, edit, cb)
                     age : bottle.age,
                     alcool : bottle.alcool,
                     photo : path,
+                    genre : bottle.genre,
+                    pays : bottle.pays,
                     distillerie : bottle.distillerie,
                     address : bottle.address,
+                    zip : bottle.zip,
+                    nez : bottle.nez,
+                    bouche : bottle.bouche,
+                    final : bottle.final,
+                    note : bottle.note,
                     message : bottle.message
                 });
             }

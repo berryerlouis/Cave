@@ -9,6 +9,12 @@ var closeCamera = function( data )
     });
 }
 
+var takePicture = function ()
+{
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    context.drawImage(video,0,0,320,240);
+}
 
 var openCamera = function( data )
 {
@@ -30,14 +36,14 @@ var openCamera = function( data )
     {
         video: {
             video: true,
-            width: {
+            /*width: {
                 min: 320,
                 max: 640,
             },
             height: {
                 min: 240,
                 max: 480
-            },
+            },*/
             facingMode: "environment"
               //facingMode: 'user'
         }

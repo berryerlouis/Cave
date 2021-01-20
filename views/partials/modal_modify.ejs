@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="modalModifyForm" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -12,7 +12,7 @@
             </div>
             
             <!-- Modal Body -->
-            <div class="modal-body" style="height: 80vh;" >
+            <div class="modal-body">
                 <p class="statusModalModifyMsg"></p>
                 <form role="form" method="POST" action="add">
                     <div class="form-group">
@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="inputAge">Age</label>
+                                <label for="inputAge">Age</label> 
                                 <input type="number" class="form-control" id="inputModifyAge" placeholder="0" value=""/>
                             </div>
                         </div>
@@ -38,6 +38,26 @@
                         <input type="text" readonly class="form-control" id="inputModifyQty" placeholder="0" value=""/>
                     </div>
                     <div class="form-group">
+                        <label for="inputNote">Note (sur 5)</label>
+                        <input type="number" class="form-control" id="inputModifyNote" min="0" max="5" placeholder="" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputGenre">Genre</label>
+                        <input type="text" class="form-control" id="inputModifyGenre" placeholder="" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNez">Nez</label>
+                        <textarea class="form-control" id="inputModifyNez" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputBouche">Bouche</label>
+                        <textarea class="form-control" id="inputModifyBouche" placeholder="" value=""></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFinal">Final</label>
+                        <textarea class="form-control" id="inputModifyFinal" placeholder="" value=""></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="inputDistillerie">Nom du domaine</label>
                         <input type="text" class="form-control" id="inputModifyDistillerie" placeholder="Nom du domaine" value=""/>
                     </div>
@@ -46,14 +66,20 @@
                         <input type="text" class="form-control" id="inputModifyAddress" placeholder="Adresse du domaine" value=""/>
                     </div>
                     <div class="form-group">
+                        <label for="inputZip">Code Postal</label>
+                        <input type="text" class="form-control" id="inputModifyZip" placeholder="" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPays">Pays</label>
+                        <input type="text" class="form-control" id="inputModifyPays" placeholder="Pays" value=""/>
+                    </div>
+                    <div class="form-group">
                         <label for="inputMessage">Message</label>
                         <textarea class="form-control" id="inputModifyMessage" placeholder="Message"></textarea>
                     </div>
                     <div class="form-group" style="display: none;">
                         <label for="inputPhoto">Photo</label>
-                        <p class="text-center">
-                            <img style="margin: 2px;" id="inputModifyPhoto" class="card-img-top-shrink" src="">
-                        </p>
+                        <textarea class="form-control" id="inputModifyPhoto" placeholder="" src=""></textarea>
                     </div>
                 </form>
             </div>

@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../partials/header.ejs') %>
-    <body onload="test()">
+    <body onload="addFilters(<%=JSON.stringify(bottles)%>)">
         <%- include('../partials/nav.ejs') %>
-        <main role="main">
-            <%- body %>
-        </main>
+        <%- body %>
     </body>
     <%- include('../partials/footer.ejs') %>
 </html>

@@ -3,12 +3,19 @@
     "bottles": [
         {
             "qty" : "0",
-            "name": "Glen Grant",
+            "name": "Cerf-Volant",
             "age": "10",
             "alcool": "40",
             "photo": "images/pictures/generic_vin.png",
-            "distillerie": "Aberlour distillery",
-            "address": "Aberlour Banffshire AB38 9PJ",
+            "distillerie": "Antoine BECHERA",
+            "genre": "Cote du Rhone",
+            "pays": "France",
+            "address": "Drome",
+            "zip": "07300",
+            "nez": "",
+            "bouche": "",
+            "final": "",
+            "note": "",
             "message": ""
         }
     ]

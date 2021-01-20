@@ -10,7 +10,7 @@ app.use('/images', express.static(__dirname + 'public/images'))
 
 // Set Templating Engine
 app.use(expressLayouts);
-app.use(express.json({limit: '2MB'}));
+app.use(express.json({limit: '4MB'}));
 app.set('layout', './layouts/page')
 app.set('view engine', 'ejs')
 
@@ -33,7 +33,8 @@ app.get('', (req, res) => {
                                 whiskiesNbTypes:whiskies.length,
                                 whiskiesLength:nbWhiskies,
                                 autresNbTypes:autres.length,
-                                autresLength:nbAutres
+                                autresLength:nbAutres,
+                                bottles: vins = vins.concat(whiskies.concat(autres))
                             });
                         });
                     });
@@ -42,6 +43,33 @@ app.get('', (req, res) => {
         });
     });
 })
+
+app.get('/map', (req, res) => {
+    db.readAll("vins",(vins) => {
+        db.getNbBottles("vins",(nbVins) => {
+            db.readAll("whiskies",(whiskies) => {
+                db.getNbBottles("whiskies",(nbWhiskies) => {
+                    db.readAll("autres",(autres) => {
+                        db.getNbBottles("autres",(nbAutres) => {
+                        res.render('map', 
+                            { 
+                                title: 'Carte',
+                                vinsNbTypes:vins.length,
+                                vinsLength:nbVins,
+                                whiskiesNbTypes:whiskies.length,
+                                whiskiesLength:nbWhiskies,
+                                autresNbTypes:autres.length,
+                                autresLength:nbAutres,
+                                bottles: vins = vins.concat(whiskies.concat(autres))
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+})
+
 
 //route vin
 app.get('/vin', (req, res) => {
@@ -103,7 +131,14 @@ app.post('/add',(req, res) => {
             "alcool": req.body.alcool,
             "photo": req.body.base64image,
             "distillerie": req.body.distillerie,
+            "genre": req.body.genre,
+            "pays": req.body.pays,
             "address": req.body.address,
+            "zip": req.body.zip,
+            "nez": req.body.nez,
+            "bouche": req.body.bouche,
+            "final": req.body.final,
+            "note": req.body.note,
             "message": req.body.message
         });
     db.write(req.body.db,bottle,false,(err) => {
@@ -126,7 +161,14 @@ app.post('/edit',(req, res) => {
             "alcool": req.body.alcool,
             "photo": req.body.photo,
             "distillerie": req.body.distillerie,
+            "genre": req.body.genre,
+            "pays": req.body.pays,
             "address": req.body.address,
+            "zip": req.body.zip,
+            "nez": req.body.nez,
+            "bouche": req.body.bouche,
+            "final": req.body.final,
+            "note": req.body.note,
             "message": req.body.message
         });
     db.write(req.body.db,bottle,true,(err) => {
@@ -153,6 +195,14 @@ app.post('/bottleQty',(req, res) => {
     });
 })
 
+
+//route get bottles from db
+app.post('/bottles',(req, res) => {
+    
+    db.readAll(req.body.db,(bottlesDb) => {
+        res.send({bottles: bottlesDb})
+    });
+})
 
 https.createServer({
         key: fs.readFileSync('./cert/server.key'),

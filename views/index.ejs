@@ -12,45 +12,78 @@
     <div class="row">
         <div class="col-md-4">
             <a class="btn" href="whisky" role="button" >
-                <div class="card bg-dark text-white">
-                    <div class="card-body">
-                        <img class="card-img-top" src="images/whisky.jpg "  width="300" height="200"/>
-                        <h2 class="card-title">Mes whiskies</h2>
-                        <p class="card-text">Gére ta cave à whiskies</p>
+                <div class="card text-white custom-card" style="width:300px">
+                    <img class="card-img-top" style="border-top-left-radius: 12px; border-top-right-radius: 12px;height: 200px;" src="images/whisky.jpg">
+                    <div class="gradient"></div>
+                    <div class="card-header mx-3">
+                        <div class="card-title">
+                            <div class="row h-100">
+                                <div class="col align-self-start">
+                                    <div class="row">
+                                        <h5>Mes whiskies</h5>
+                                    </div>
+                                    <div class="row">
+                                        <p class="card-text float-center">Gére ta cave à whiskies</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush bg-dark text-white">
-                        <li class="list-group-item bg-dark text-white">Nombre de bouteilles : <%= whiskiesLength%></li>
-                        <li class="list-group-item bg-dark text-white">Nombre de type de bouteilles : <%= whiskiesNbTypes%></li>
+                    <ul class="list-group list-group-flush text-white mx-1">
+                        <li class="list-group-item text-white"> Nombre de bouteilles : <%= whiskiesLength%></li>
+                        <li class="list-group-item text-white"> Nombre de type de bouteilles : <%= whiskiesNbTypes%></li>
                     </ul>
                 </div>
             </a>
         </div>
         <div class="col-md-4">
             <a class="btn" href="vin" role="button" >
-                <div class="card bg-dark text-white">
-                    <div class="card-body">
-                        <img class="card-img-top" src="images/vin.jpg "  width="300" height="200"/>
-                        <h2 class="card-title">Mes vins</h2>
-                        <p class="card-text">Gére ta cave à vins</p>
+                <div class="card text-white custom-card" style="width:300px">
+                    <img class="card-img-top" style="border-top-left-radius: 12px; border-top-right-radius: 12px;height: 200px;" src="images/vin.jpg">
+                    <div class="gradient"></div>
+                    <div class="card-header mx-3">
+                        <div class="card-title">
+                            <div class="row h-100">
+                                <div class="col align-self-start">
+                                    <div class="row">
+                                        <h5>Mes vins</h5>
+                                    </div>
+                                    <div class="row">
+                                        <p class="card-text float-center">Gére ta cave à vins</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush bg-dark text-white">
-                        <li class="list-group-item bg-dark text-white">Nombre de bouteilles : <%= vinsLength%></li>
-                        <li class="list-group-item bg-dark text-white">Nombre de type de bouteilles : <%= vinsNbTypes%></li>
+                    <ul class="list-group list-group-flush text-white mx-1">
+                        <li class="list-group-item text-white"> Nombre de bouteilles : <%= vinsLength%></li>
+                        <li class="list-group-item text-white"> Nombre de type de bouteilles : <%= vinsNbTypes%></li>
                     </ul>
                 </div>
             </a>
         </div>
         <div class="col-md-4">
             <a class="btn" href="autre" role="button" >
-                <div class="card bg-dark text-white">
-                    <div class="card-body">
-                        <img class="card-img-top" src="images/autre.jpg "  width="300" height="200"/>
-                        <h2 class="card-title">Mes boissons</h2>
-                        <p class="card-text">Gére tes autres boissons</p>
+                <div class="card text-white custom-card" style="width:300px">
+                    <img class="card-img-top" style="border-top-left-radius: 12px; border-top-right-radius: 12px;height: 200px;" src="images/autre.jpg">
+                    <div class="gradient"></div>
+                    <div class="card-header mx-3">
+                        <div class="card-title">
+                            <div class="row h-100">
+                                <div class="col align-self-start">
+                                    <div class="row">
+                                        <h5>Mes boissons</h5>
+                                    </div>
+                                    <div class="row">
+                                        <p class="card-text float-center">Gére tes autres boissons</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush bg-dark text-white">
-                        <li class="list-group-item bg-dark text-white">Nombre de bouteilles : <%= autresLength%></li>
-                        <li class="list-group-item bg-dark text-white">Nombre de type de bouteilles : <%= autresNbTypes%></li>
+                    <ul class="list-group list-group-flush text-white mx-1">
+                        <li class="list-group-item text-white"> Nombre de bouteilles : <%= autresLength%></li>
+                        <li class="list-group-item text-white"> Nombre de type de bouteilles : <%= autresNbTypes%></li>
                     </ul>
                 </div>
             </a>

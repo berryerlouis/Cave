@@ -39,7 +39,7 @@
 
     <!-- Custom script  
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>-->
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="crossorigin="" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
@@ -53,6 +53,7 @@
     <script src="js/bottle_card.js"></script>
     <script src="js/modal_bottle.js"></script>
     <script src="js/filters.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/init.js"></script>
 
     <style type="text/css">
@@ -60,6 +61,123 @@
             height:1000px;
             width: 1000px;
         }
+        .card {
+            border-radius: 12px !important;
+            -webkit-border-radius: 12px !important;
+            -moz-border-radius: 12px !important;
+            -ms-border-radius: 12px !important;
+            -o-border-radius: 12px !important;
+            border: none !important;
+            margin: 10px;
+            -webkit-box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 3px 3px 20px 0px #000000bf;
+            box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.75);
+            background-color: #212529;
+            }
+            .btn-circle.btn-xl { 
+                width: 70px; 
+                height: 70px; 
+                padding: 10px 16px; 
+                border-radius: 35px; 
+                font-size: 12px; 
+                text-align: center; 
+            } 
+            .btn-warning {
+                color: #ffffff !important;
+                background-color: #92751c!important;
+                border-color: #92751c!important;
+            }
+
+
+            .custom-card img {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            height: 400px;
+            }
+            .list-group-search .list-group-item-search{
+                background-color:#fff!important
+            }
+            .list-group .list-group-item{
+            background-color: #212529;
+            }
+
+            .gradient {
+            position: absolute;
+            top: 150px; /* find a way to get image height and put it here */
+            height: 250px;
+            width: 100%;
+            background: linear-gradient(0deg, #212529 0%, rgba(0, 0, 0, 0) 100%);
+            }
+
+            * { box-sizing: border-box; }
+            body {
+            font: 16px Arial;
+            }
+            .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+            display: inline-block;
+            }
+            input {
+            border: 1px solid transparent;
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-size: 16px;
+            }
+            input[type=text] {
+            background-color: #f1f1f1;
+            width: 100%;
+            }
+            input[type=submit] {
+            background-color: DodgerBlue;
+            color: #fff;
+            }
+            .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+            }
+            .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+            }
+            .autocomplete-items div:hover {
+            /*when hovering an item:*/
+            background-color: #e9e9e9;
+            }
+            .autocomplete-active {
+            /*when navigating through the items using the arrow keys:*/
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+            }
+
+
+        /* Float to the right on screens that are equal to or less than 768px wide */
+@media (max-width: 768px) {
+  .fixed-bottom {
+    float: right;
+    position: fixed;
+    top: 90%;
+    left: 42.5%;
+  }
+}
+
+/* Float to the right on screens that are equal to or greater than 769px wide */
+@media (min-width: 769px) {
+  .fixed-bottom {
+    left: 1%;
+    position: fixed;
+    top: 50%;
+  }
+}
     </style>
 </head>
 

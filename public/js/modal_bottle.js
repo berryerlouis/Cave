@@ -1,101 +1,115 @@
 var savedDatabase;
-
-var showBottles = function(jsonBottles, page)
+var showBottles = function(jsonBottles)
 {
     var bottle_list = 
-    `<% for (var i = page; i < 4+page;  i++ ) { if(bottles[i]!=null){ %>    
-
-        <div class="card bg-dark text-white" id="bottle_<%=i%>" style="width: 300px; margin:5px; border-radius: 2%">
-            <div class="row justify-content-center">
-                <img style="margin: 10px; width: 150px; height: 185px;border-radius: 20%" class="float-center" id="bottle_<%=i%>_photo" class="card-img-top-shrink" src="<%= bottles[i].photo %>">
-            </div>
-            <div class="card-header">
-                <div class="row h-100">
-                    <div class="col-7 align-self-start">
-                        <div class="row">
-                            <h5 class="card-title float-center" id="bottle_<%=i%>_name" ><%= bottles[i].name %></h5>
+    `<% for (var i = 0; i < page ;  i++ ) { if(bottles[i]!=null){ %>  
+    
+        <div class="card text-white custom-card" style="width:350px" id="bottle_<%=i%>">
+            <img id="bottle_<%=i%>_photo" class="card-img-top" src="<%= bottles[i].photo %>">
+            <div class="gradient"></div>
+            <div class="card-header mx-3">
+                <div class="card-title">
+                    <div class="row h-100">
+                        <div class="col-7 align-self-start">
+                            <div class="row">
+                                <h5 id="bottle_<%=i%>_name" ><%= bottles[i].name %></h5>
+                            </div>
+                            <div class="row">
+                                <p class="card-text float-center" id="bottle_<%=i%>_head_distillerie"><%= bottles[i].distillerie %></p>
+                            </div>
                         </div>
-                        <div class="row">
-                            <p class="card-text float-center" id="bottle_<%=i%>_head_distillerie"><%= bottles[i].distillerie %></p>
-                        </div>
-                    </div>
-                    <div class="col-5 align-self-center h-100">
-                        <div class="row h-100">
-                            <div class="col my-auto">
-                                <div class="w-100">
-                                    <h6 class="card-text card-text text-center h-100" id="bottle_<%=i%>_note"><% if (bottles[i].note == "") {%>0<%} else { %><%=bottles[i].note%><% } %> / 5</h6>
+                        <div class="col-5 align-self-center h-100">
+                            <div class="row h-100">
+                                <div class="col my-auto">
+                                    <div class="w-100">
+                                        <h6 class="text-right h-100" id="bottle_<%=i%>_note"><% if (bottles[i].note == "") {%>0<%} else { %><%=bottles[i].note%><% } %> / 5</h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
                
-            <ul class="list-group list-group-flush bg-dark text-white">
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_age"><% if (bottles[i].age != "") { %> Age : <%= bottles[i].age %> an(s) <% } else { %> Assemblage <% } %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_alcool">Alcool : <%= bottles[i].alcool %> %</li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_genre">Genre : <%= bottles[i].genre %></li>
+            <ul class="list-group list-group-flush text-white mx-1">
+                <li class="list-group-item text-white" id="bottle_<%=i%>_age"><% if (bottles[i].age != "") { %> Age : <%= bottles[i].age %> an(s) <% } else { %> Assemblage <% } %></li>
+                <li class="list-group-item text-white" id="bottle_<%=i%>_alcool">Alcool : <%= bottles[i].alcool %> %</li>
+                <li class="list-group-item text-white" id="bottle_<%=i%>_genre">Genre : <%= bottles[i].genre %></li>
             </ul>
-            <ul class="list-group list-group-flush bg-dark text-white">
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_nez"style="display: none;">Nez : <%= bottles[i].nez %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_bouche"style="display: none;">Bouche : <%= bottles[i].bouche %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_final"style="display: none;">Final : <%= bottles[i].final %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_distillerie"style="display: none;">Distillerie : <%= bottles[i].distillerie %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_address"style="display: none;">Adresse : <%= bottles[i].address %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_zip"style="display: none;">Code Postal : <%= bottles[i].zip %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_pays"style="display: none;">Pays : <%= bottles[i].pays %></li>
-                <li class="list-group-item bg-dark text-white" id="bottle_<%=i%>_message"style="display: none;">Message : <%= bottles[i].message %></li>
+            <ul class="list-group list-group-flush  text-white mx-1">
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_nez"style="display: none;">Nez : <%= bottles[i].nez %></li>
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_bouche"style="display: none;">Bouche : <%= bottles[i].bouche %></li>
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_final"style="display: none;">Final : <%= bottles[i].final %></li>
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_distillerie"style="display: none;">Distillerie : <%= bottles[i].distillerie %></li>
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_address"style="display: none;">Adresse : <%= bottles[i].address %></li>
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_zip"style="display: none;">Code Postal : <%= bottles[i].zip %></li>
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_pays"style="display: none;">Pays : <%= bottles[i].pays %></li>
+                <li class="list-group-item  text-white" id="bottle_<%=i%>_message"style="display: none;">Message : <%= bottles[i].message %></li>
             </ul>
             <div class="card-footer">
                 <div class="row">
-                    <div class="col-3">
-                        <button class="btn btn-secondary float-left" data-toggle="modal" data-target="#modalModifyForm" onclick="fillModalEdit(<%=i%>)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                        </svg>
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="col-4">                            
-                                <button type="button" class="btn btn-danger float-left" onclick="removeBottleQty(<%=i%>)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                                      </svg>
-                                </button>
-                            </div>
-                            <div class="col-4">
-                                <h5 class="text-center" style="margin-top: 5px;" id="bottle_<%=i%>_qty" ><%=bottles[i].qty%></h5>
-                            </div>
-                            <div class="col-4">
-                                <button type="button" class="btn btn-success float-right" onclick="addBottleQty(<%=i%>)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
-                                    </svg>
-                                </button>
+                    <div class="col-12">
+                        <div class="row justify-content-center">
+                            <div class="btn-toolbar">
+                                <div class="btn-group">
+                                    <button class="btn btn-secondary mr-3" data-toggle="modal" data-target="#modalModifyForm" onclick="fillModalEdit(<%=i%>)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                        </svg>
+                                        </button>
+                                    <button type="button" class="btn btn-warning" onclick="removeBottleQty(<%=i%>)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                                          </svg>
+                                    </button>
+                                </div>
+                                <div class="row mx-3">
+                                    <div class="col-12 d-flex align-items-center justify-content-center">
+                                        <span id="bottle_<%=i%>_qty"><%=bottles[i].qty%></span>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-warning mr-3" onclick="addBottleQty(<%=i%>)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="btn btn-secondary" id="bottle_show" onclick="modalShowDescription(<%=i%>)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                          </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-secondary float-right" id="bottle_<%=i%>_show" onclick="modalShowDescription(<%=i%>)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                          </svg>
                     </div>
                 </div>
             </div>
         </div>
-    <% }} %>                               
-    `;    
-    $('#container_bottles').html(ejs.render(bottle_list, {bottles: jsonBottles, page: page*4}));
-    
-    document.getElementById('page_number').innerHTML = page+1 +" / "+ (Math.ceil(jsonBottles.length/4));
-    ma_page = page;
+    <% }} %>
+                                        
+    `; 
+    $('#container_bottles').html(ejs.render(bottle_list, {bottles: jsonBottles, page: document.getElementById('container_bottles').children.length+6}));
 }
 
-var getBottles = function( db )
+
+var getBottles = function( )
 {
+    var db = $('.modal-add-title').html().replace("Ajout d'une bouteille de ","")
+    if(db == "whisky")
+    {
+        db = "whiskies"
+    }
+    else if(db == "vin")
+    {
+        db = "vins"
+    }
+    else if(db == "autres")
+    {
+        db = "autres"
+    }
     var xhr = new XMLHttpRequest();
     let url = "bottles";
     xhr.open('POST', url, true);
@@ -113,7 +127,7 @@ var getBottles = function( db )
             }
             $("#title_nb_types_bottles").html("Nombre de type de bouteilles : "+ jsonBottle.bottles.length);
             $("#title_nb_bottles").html("Nombre de bouteilles : "+ nbBottles);
-            showBottles(jsonBottle.bottles,ma_page);
+            showBottles(jsonBottle.bottles);
             addFilters();
         }
     }
@@ -145,7 +159,7 @@ var addBottle = function( data )
             document.getElementById("title_nb_bottles").innerHTML = "Nombre de type de bouteilles : " + jsonBottle.nbBottles + " bouteilles";
             document.getElementById("title_nb_bottles").innerHTML = "Nombre de bouteilles : " + jsonBottle.nbBottles;
             //update list
-            showBottles(jsonBottle.bottles,ma_page);
+            showBottles(jsonBottle.bottles);
             
             $('.statusMsg').html(jsonBottle.error);  
             $('#modalAddForm').modal('toggle');

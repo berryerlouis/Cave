@@ -1,6 +1,6 @@
-<% for (var i = 0; i < bottles.length;  i++ ) { %>
-    <div class="col-3 mr-3 my-3">
-    <div class="card text-white custom-card" id="bottle_" id="bonjour">
+<% for (var i = 0; i < 4;  i++ ) { if(bottles[i]!=null){ %>  
+    
+    <div class="card text-white custom-card" style="width:350px" id="bottle_<%=i%>">
         <img id="bottle_<%=i%>_photo" class="card-img-top" src="<%= bottles[i].photo %>">
         <div class="gradient"></div>
         <div class="card-header mx-3">
@@ -33,14 +33,14 @@
             <li class="list-group-item text-white" id="bottle_<%=i%>_genre">Genre : <%= bottles[i].genre %></li>
         </ul>
         <ul class="list-group list-group-flush  text-white mx-1">
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_nez"style="display: none">Nez : <%= bottles[i].nez %></li>
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_bouche"style="display: none">Bouche : <%= bottles[i].bouche %></li>
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_final"style="display: none">Final : <%= bottles[i].final %></li>
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_distillerie"style="display: none">Distillerie : <%= bottles[i].distillerie %></li>
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_address"style="display: none">Adresse : <%= bottles[i].address %></li>
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_zip"style="display: none">Code Postal : <%= bottles[i].zip %></li>
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_pays"style="display: none">Pays : <%= bottles[i].pays %></li>
-            <li class="list-group-item  text-white" id="bottle_<%=i%>_message"style="display: none">Message : <%= bottles[i].message %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_nez"style="display: none;">Nez : <%= bottles[i].nez %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_bouche"style="display: none;">Bouche : <%= bottles[i].bouche %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_final"style="display: none;">Final : <%= bottles[i].final %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_distillerie"style="display: none;">Distillerie : <%= bottles[i].distillerie %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_address"style="display: none;">Adresse : <%= bottles[i].address %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_zip"style="display: none;">Code Postal : <%= bottles[i].zip %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_pays"style="display: none;">Pays : <%= bottles[i].pays %></li>
+            <li class="list-group-item  text-white" id="bottle_<%=i%>_message"style="display: none;">Message : <%= bottles[i].message %></li>
         </ul>
         <div class="card-footer">
             <div class="row">
@@ -53,7 +53,7 @@
                                         <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                                     </svg>
                                     </button>
-                                <button type="button" class="btn btn-danger mr-3" onclick="removeBottleQty(<%=i%>)">
+                                <button type="button" class="btn btn-warning" onclick="removeBottleQty(<%=i%>)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                         <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
@@ -62,17 +62,17 @@
                             </div>
                             <div class="row mx-3">
                                 <div class="col-12 d-flex align-items-center justify-content-center">
-                                    <span><%=bottles[i].qty%></span>
+                                    <span id="bottle_<%=i%>_qty"><%=bottles[i].qty%></span>
                                 </div>
                             </div>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-success mr-3" onclick="addBottleQty(<%=i%>)">
+                                <button type="button" class="btn btn-warning mr-3" onclick="addBottleQty(<%=i%>)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
                                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
                                     </svg>
                                 </button>
-                                <button class="btn btn-secondary mr-3" id="bottle_show" onclick="modalShowDescription(<%=i%>)">
+                                <button class="btn btn-secondary" id="bottle_show" onclick="modalShowDescription(<%=i%>)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                       </svg>
@@ -84,5 +84,4 @@
             </div>
         </div>
     </div>
-</div>    
-<% } %>
+<% }} %>

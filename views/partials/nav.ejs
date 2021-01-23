@@ -1,13 +1,14 @@
 <nav class="navbar navbar-dark bg-dark fixed-top ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Home <span class="sr-only">(current)</span></a>
-        <form class="d-flex">
-            <form class="d-flex">
-                <input class="form-control me-2" id="listSearch" type="text" placeholder="Search">
-                    <ul class="list-group" id="myList">
-                    </ul>
-                </input> 
+        <div class="nav navbar-nav navbar-left">
+            <a class="navbar-brand" href="/">Home <span class="sr-only">(current)</span></a>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <form class="navbar-form" autocomplete="off" role="search">
+                <div class="autocomplete" style="width:200px;">
+                    <input id="myInput" type="text" name="" onkeydown="search()" placeholder="Search">
+                </div>
             </form>
-        </form>
+        </div>
     </div>
 </nav>

@@ -5,7 +5,7 @@ function showFilteredBottles(type,filter)
     let bottles = [];
     if(filter == "All")
     {
-        showBottles(savedDatabase,0);
+        showBottles(savedDatabase);
         filteredDatabase = savedDatabase;
         
         document.getElementById('dropdownFilterGenreButton').innerHTML = "Genre";
@@ -25,7 +25,7 @@ function showFilteredBottles(type,filter)
                 bottles.push(element);
             }
         });
-        showBottles(bottles, 0);
+        showBottles(bottles);
         filteredDatabase = bottles;
         document.getElementById('dropdownFilterGenreButton').innerHTML = filter;
     }
@@ -42,7 +42,7 @@ function showFilteredBottles(type,filter)
                 bottles.push(element);
             }
         });
-        showBottles(bottles, 0);
+        showBottles(bottles);
         filteredDatabase = bottles;
         document.getElementById('dropdownFilterPaysButton').innerHTML = filter;
     }
@@ -63,7 +63,7 @@ function showFilteredBottles(type,filter)
                         bottles.push(element);
                     }
                 });
-            showBottles(bottles,0);
+            showBottles(bottles);
             filteredDatabase = bottles;
             document.getElementById('dropdownFilterNoteButton').innerHTML = filter;
         }
@@ -76,8 +76,8 @@ function addFilters(){
     if(document.getElementById('db')!= null)
     {
         let div = document.getElementById('dropdownFilterGenreButtonItems');
-        div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('genre','All')">Tout</a>`;
-
+        div.innerHTML = `<a class="dropdown-item" onclick="showFilteredBottles('genre','All')">Tout</a>`;
+        div.innerHTML += `<div class="dropdown-divider"></div>`;
         let find = false;
         let genres = [];
         filteredDatabase.forEach(element => {
@@ -96,7 +96,8 @@ function addFilters(){
         });
 
         div = document.getElementById('dropdownFilterPaysButtonItems');
-        div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('pays','All')">Tout</a>`;
+        div.innerHTML = `<a class="dropdown-item" onclick="showFilteredBottles('pays','All')">Tout</a>`;
+        div.innerHTML += `<div class="dropdown-divider"></div>`;
         find = false;
         genres = [];
         filteredDatabase.forEach(element => {
@@ -115,7 +116,8 @@ function addFilters(){
         });
 
         div = document.getElementById('dropdownFilterNoteButtonItems');
-        div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('note','All')">Tout</a>`;
+        div.innerHTML = `<a class="dropdown-item" onclick="showFilteredBottles('note','All')">Tout</a>`;
+        div.innerHTML += `<div class="dropdown-divider"></div>`;
         div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('note','5')">5</a>`;
         div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('note','4')">4</a>`;
         div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('note','3')">3</a>`;

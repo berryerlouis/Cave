@@ -18,7 +18,7 @@ var removeBottleQty = function( card_id )
 var fillModalEdit = function( card_id )
 {
     $('#inputModifyName').val($("#bottle_"+card_id+"_name").html());
-    $('#inputModifyAge').val($("#bottle_"+card_id+"_age").html().replace("Age : ",""));
+    $('#inputModifyAge').val(parseInt($("#bottle_2_age").html().replace("Age : ","").replace("an(s)","").replace(" ","")));
     $('#inputModifyAlcool').val($("#bottle_"+card_id+"_alcool").html().replace("Alcool : ","").replace(" %",""));
     $('#inputModifyQty').val($("#bottle_"+card_id+"_qty").html());
     $('#inputModifyPhoto').attr("src",($("#bottle_"+card_id+"_photo").attr("src")));

@@ -1,24 +1,28 @@
-var ma_page;
+
 
 $(function() {
-    ma_page = 0;
-    //getBottles(document.getElementById('db').innerHTML.replace("Mes ",""));
+    
+    if($('#container_bottles').html())
+    {
+        getBottles();
+        $(window).on("scroll",function () 
+        {
+            if($(window).scrollTop() + $(window).height() > $(document).height() - 100)
+            {
+                appendData();
+            }
+            /*else if($(window).scrollTop() == 0)
+            {
+                document.getElementById('container_bottles').innerHTML = "";
+                appendData();
+            }*/
+        });
+        function appendData() {
+            var html = '';
+            showBottles(filteredDatabase);
+            
+        }
+    }
 });
 
-function pageMinus()
-{
-    if(ma_page > 0)
-    {
-        showBottles(filteredDatabase, ma_page-1);
-    }
-}
 
-function pagePlus()
-{
-    if(ma_page < filteredDatabase.length/4 - 1  )
-    {
-        showBottles(filteredDatabase, ma_page +1);
-    }
-}
-
-getBottles("whiskies")

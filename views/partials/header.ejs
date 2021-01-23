@@ -87,7 +87,11 @@
                 background-color: #92751c!important;
                 border-color: #92751c!important;
             }
-
+            .btn-secondary-custom {
+                color: #fff;
+                background-color: #92751c!important;
+                border-color: #92751c!important;
+            }
 
             .custom-card img {
             border-top-left-radius: 12px;
@@ -160,24 +164,41 @@
             }
 
 
-        /* Float to the right on screens that are equal to or less than 768px wide */
-@media (max-width: 768px) {
-  .fixed-bottom {
-    float: right;
-    position: fixed;
-    top: 90%;
-    left: 42.5%;
-  }
-}
+            @media (max-width: 768px) {
+            .fixed-bottom {
+                float: right;
+                position: fixed;
+                top: 90%;
+                left: 80%;
+            }
+            }
+            @media (min-width: 769px) {
+            .fixed-bottom {
+                left: 1%;
+                position: fixed;
+                top: 50%;
+            }
+            }
 
-/* Float to the right on screens that are equal to or greater than 769px wide */
-@media (min-width: 769px) {
-  .fixed-bottom {
-    left: 1%;
-    position: fixed;
-    top: 50%;
-  }
-}
+            @media (min-width: 1200px){
+            .container, .container-lg, .container-md, .container-sm, .container-xl {
+                max-width: 1640px;
+            }}
+
+            @media (max-width: 768px) {
+            .fixed-top-custom {
+                position: fixed;
+                top: 7%!important;;    
+                z-index: 1030;
+            }
+            }
+            @media (min-width: 769px) {
+            .fixed-top-custom {
+                position: fixed;
+                top: 30%!important;;
+                z-index: 1030;
+            }
+            }
     </style>
 </head>
 

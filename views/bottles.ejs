@@ -19,7 +19,7 @@
         </div>
     </div>
 </div><!-- Light circle button with ripple effect -->
-<div class="fixed-bottom" style="">
+<div class="fixed-bottom">
     <button type="button" class="btn btn-warning btn-circle btn-xl" data-toggle="modal" data-target="#modalAddForm" onclick="openCamera()">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -28,25 +28,25 @@
 </div>
 
 
-<div class="container">
+<div class="fixed-top-custom w-100">
     <div class="row text-center">
         <div class="col">
             <div class="dropdown">
-                <button type="button" id="dropdownFilterGenreButton" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</button>
+                <button class="btn btn-secondary-custom dropdown-toggle" type="button" id="dropdownFilterGenreButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</button>
                 <div class="dropdown-menu dropdown-menu-dark" id="dropdownFilterGenreButtonItems"aria-labelledby="dropdownMenuButton">
                 </div>
               </div>
         </div>
         <div class="col">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" id="dropdownFilterPaysButton" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pays</button>
+                <button class="btn btn-secondary-custom dropdown-toggle" id="dropdownFilterPaysButton" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pays</button>
                 <div class="dropdown-menu dropdown-menu-dark" id="dropdownFilterPaysButtonItems"aria-labelledby="dropdownMenuButton">
                 </div>
             </div>
         </div>
         <div class="col">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" id="dropdownFilterNoteButton" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Note</button>
+                <button class="btn btn-secondary-custom dropdown-toggle" id="dropdownFilterNoteButton" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Note</button>
                 <div class="dropdown-menu dropdown-menu-dark" id="dropdownFilterNoteButtonItems"aria-labelledby="dropdownMenuButton">
                 </div>
             </div>
@@ -59,7 +59,7 @@
     <%- include('./partials/modal_modify.ejs') %>
 </div> <!-- /container  %>-->
 
-<div class="container-fluid mb-10" id="myScroll">
+<div class="container" id="myScroll">
     <div class="row justify-content-center" id="container_bottles">
         <!-- <%- include('./partials/bottle_list3.ejs') %>-->
     </div>

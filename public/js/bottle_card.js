@@ -18,13 +18,13 @@ var removeBottleQty = function( card_id )
 var fillModalEdit = function( card_id )
 {
     $('#inputModifyName').val($("#bottle_"+card_id+"_name").html());
-    $('#inputModifyAge').val(parseInt($("#bottle_2_age").html().replace("Age : ","").replace("an(s)","").replace(" ","")));
+    $('#inputModifyAge').val(parseInt($("#bottle_"+card_id+"_age").html().replace("Age : ","").replace("an(s)","").replace(" ","")));
     $('#inputModifyAlcool').val($("#bottle_"+card_id+"_alcool").html().replace("Alcool : ","").replace(" %",""));
     $('#inputModifyQty').val($("#bottle_"+card_id+"_qty").html());
     $('#inputModifyPhoto').attr("src",($("#bottle_"+card_id+"_photo").attr("src")));
     $('#inputModifyDistillerie').val($("#bottle_"+card_id+"_head_distillerie").html());
     $('#inputModifyGenre').val($("#bottle_"+card_id+"_genre").html().replace("Genre : ",""));
-    $('#inputModifyNote').val(parseInt($("#bottle_"+0+"_note").html().replace(" / 5","")));
+    $('#inputModifyNote').val(parseInt($("#bottle_"+card_id+"_note").html().replace(" / 5","")));
     $('#inputModifyNez').val($("#bottle_"+card_id+"_nez").html().replace("Nez : ",""));
     $('#inputModifyBouche').val($("#bottle_"+card_id+"_bouche").html().replace("Bouche : ",""));
     $('#inputModifyFinal').val($("#bottle_"+card_id+"_final").html().replace("Final : ",""));

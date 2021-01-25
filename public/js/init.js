@@ -9,19 +9,9 @@ $(function() {
         {
             if($(window).scrollTop() + $(window).height() > $(document).height() - 100)
             {
-                appendData();
+                showBottles(filteredDatabase);
             }
-            /*else if($(window).scrollTop() == 0)
-            {
-                document.getElementById('container_bottles').innerHTML = "";
-                appendData();
-            }*/
         });
-        function appendData() {
-            var html = '';
-            showBottles(filteredDatabase);
-            
-        }
     }
 });
 

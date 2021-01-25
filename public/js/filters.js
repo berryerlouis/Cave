@@ -125,9 +125,4 @@ function addFilters(){
         div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('note','1')">1</a>`;
         div.innerHTML += `<a class="dropdown-item" onclick="showFilteredBottles('note','0')">0</a>`;
     }
-    else
-    {
-        initMap();
-    }
-
 }

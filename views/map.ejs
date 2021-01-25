@@ -2,53 +2,14 @@
 <div class="jumbotron">
     <div class="container">
         </br>
-        <h1 class="display-3">Bienvenue dans Ma Cave</h1>
+        <h1 class="display-3">Ma Cave</h1>
         <p>Cette application te servira à choisir et gérer tes whiskies ou tes vins </p>
     </div>
 </div>
 
-<div class="container">
-    <div id="imap">
-        <div id="map">
-            <!-- Ici s'affichera la carte -->
-        </div>
+<div class="container d-flex">
+    <div id="map">
+        <!-- Ici s'affichera la carte -->
     </div>
 </div> <!-- /container -->
 
-
-
-<script type="text/javascript">
-    var theme = 'https://{s}.tile.osm.org/{z}/{x}/{y}.png';
-    var lat = 8.619543;
-    var lon = 0.82;
-    var alt =481;
-    var macarte = null;
-    var i = 0;
-    var markerClusters;
-    var popup = L.popup();
-
-  function initMap(){
-
-        macarte = L.map('map').setView([48.833, 2.333], 4); 
-        markerClusters = L.markerClusterGroup; 
-        L.tileLayer(theme, {
-            minZoom: 1,
-            maxZoom: 20
-        }).addTo(macarte);
-
-        L.marker([48.5, -0.09]).addTo(macarte).bindPopup('<b>Le texte du marker</b><br> On peut y mettre du code HTML');
-            savedDatabase = JSON.stringify(bottles);
-
-        macarte.on('click', onMapClick);
-    }
-    
-
-    function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(macarte);
-    var marker = L.marker(e.latlng).addTo(macarte)
-    }
-
-</script>

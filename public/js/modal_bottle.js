@@ -91,25 +91,15 @@ var showBottles = function(jsonBottles)
     <% }} %>
                                         
     `; 
-    $('#container_bottles').html(ejs.render(bottle_list, {bottles: jsonBottles, page: document.getElementById('container_bottles').children.length+6}));
+    if(document.getElementById('container_bottles'))
+    {
+        $('#container_bottles').html(ejs.render(bottle_list, {bottles: jsonBottles, page: document.getElementById('container_bottles').children.length+6}));
+    }
 }
 
 
-var getBottles = function( )
+var getBottles = function( db, cb )
 {
-    var db = $('.modal-add-title').html().replace("Ajout d'une bouteille de ","")
-    if(db == "whisky")
-    {
-        db = "whiskies"
-    }
-    else if(db == "vin")
-    {
-        db = "vins"
-    }
-    else if(db == "autres")
-    {
-        db = "autres"
-    }
     var xhr = new XMLHttpRequest();
     let url = "bottles";
     xhr.open('POST', url, true);
@@ -129,6 +119,10 @@ var getBottles = function( )
             $("#title_nb_bottles").html("Nombre de bouteilles : "+ nbBottles);
             showBottles(jsonBottle.bottles);
             addFilters();
+            if(cb)
+            {
+                cb(savedDatabase);
+            }
         }
     }
     xhr.send(JSON.stringify({"db": db}));

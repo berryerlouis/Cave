@@ -26,7 +26,7 @@ $(function() {
             else if($(window).scrollTop() > 70)
             {
                 var x = document.querySelectorAll("#addBottleButton");
-                x[0].style.setProperty("top", "100px", "important");
+                x[0].style.setProperty("top", "110px", "important");
             }
             else if($(window).scrollTop() <= 70)
             {
